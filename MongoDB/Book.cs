@@ -12,9 +12,9 @@ namespace MongoDB
     {
         public ObjectId Id { get; set; }
         public string BookName { get; set; }
-        public Page Page { get; set; }
+        public List<Page> Page { get; set; }
 
-        public Book(string bookName, Page page)
+        public Book(string bookName, List<Page> page)
         {
             BookName = bookName;
             Page = page;
