@@ -42,7 +42,7 @@ namespace MongoDB
             }
             else if (result == 4)
             {
-
+                bookRepositoty.EditBookName();
             } 
             
             else

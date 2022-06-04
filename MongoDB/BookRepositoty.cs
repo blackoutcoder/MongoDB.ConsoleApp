@@ -63,6 +63,18 @@ namespace MongoDB
             Console.WriteLine(Convert.ToString(results));
         }
 
-        //public void EditBookName()
+        public void EditBookName()
+        {
+            MongoClient client = new MongoClient("mongodb+srv://blackout:karina@cluster1.b9ndq.mongodb.net/?retryWrites=true&w=majority");
+            Console.WriteLine("Enter book name to add a new page and press ENTER...");
+            var bookName = Console.ReadLine();
+            Console.WriteLine("Enter a new 'name' for a book and press ENTER...");
+            var newName = Console.ReadLine();
+            var filter = Builders<Book>.Filter.Eq("BookName", bookName);
+            var update = Builders<Book>.Update.Rename(bookName, newName);
+            var playlistCollections = client.GetDatabase("Books").GetCollection<Book>("Bookshelf");
+            var results = playlistCollections.UpdateMany(filter, update);
+            Console.WriteLine(results);
+        }
     }
 }
