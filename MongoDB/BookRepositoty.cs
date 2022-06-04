@@ -51,5 +51,18 @@ namespace MongoDB
             var playlistCollections = client.GetDatabase("Books").GetCollection<Book>("Bookshelf");
             playlistCollections.DeleteOne(filter);
         }
+
+        public void FindBook()
+        {
+            MongoClient client = new MongoClient("mongodb+srv://blackout:karina@cluster1.b9ndq.mongodb.net/?retryWrites=true&w=majority");
+            Console.WriteLine("Enter book name to find and press ENTER...");
+            var bookName = Console.ReadLine();
+            var filter = Builders<Book>.Filter.Eq("BookName", bookName);
+            var playlistCollections = client.GetDatabase("Books").GetCollection<Book>("Bookshelf");
+            var results = playlistCollections.Find(filter);
+            Console.WriteLine(Convert.ToString(results));
+        }
+
+        //public void EditBookName()
     }
 }
