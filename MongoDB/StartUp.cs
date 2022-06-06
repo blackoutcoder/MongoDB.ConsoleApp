@@ -24,7 +24,7 @@ namespace MongoDB
             Console.WriteLine("");
             Console.WriteLine(">Type '3' to find the book by name.");
             Console.WriteLine("");
-            Console.WriteLine(">Type '4' to edit book name.");
+            Console.WriteLine(">Type '4' to add new page.");
             var result = Convert.ToInt32(Console.ReadLine());
             
             
@@ -42,7 +42,7 @@ namespace MongoDB
             }
             else if (result == 4)
             {
-                bookRepositoty.EditBookName();
+                bookRepositoty.AddNewPage();
             } 
             
             else
